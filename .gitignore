@@ -1,0 +1,39 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Environment variables and secrets
+.env
+.env.*
+*.key
+*.pem
+secrets/
+
+# Large checkpoints / model weights
+*.pt
+*.pth
+*.bin
+*.onnx
+*.safetensors
+models_checkpoints/
+checkpoints/
+
+# Private/personal images (preserve structure with .gitkeep)
+inputs/persons/*
+!inputs/persons/.gitkeep
+!inputs/persons/model_female_001.jpg
+!inputs/persons/model_female_002.jpg
+
+# Temporary outputs & logs
+outputs/
+temp/
+*.log
+.DS_Store
+Thumbs.db

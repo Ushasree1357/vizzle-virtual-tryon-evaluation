@@ -1,0 +1,5 @@
+model,supported_categories_count,avg_generation_time_sec,avg_cost_inr,avg_overall_quality_5,speed_status,cost_status,commercial_suitability
+CatVTON,6,4.55,0.05,4.1,PASS (<15s),PASS (<Rs 4),Western Only
+IDM-VTON,10,8.42,2.09,4.83,PASS (<15s),PASS (<Rs 4),RECOMMENDED FOR PRODUCTION
+OOTDiffusion,6,9.8,0.15,4.38,PASS (<15s),PASS (<Rs 4),Western Only
+FASHN.ai (v1.5 API),10,6.68,3.76,4.69,PASS (<15s),PASS (<Rs 4),Runner-up Commercial API

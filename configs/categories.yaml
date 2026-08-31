@@ -1,0 +1,173 @@
+# Centralized Clothing Category Configuration for Vizzle Virtual Try-On (VTON)
+# Single source of truth for all 10 mandatory evaluation categories.
+
+categories:
+  saree:
+    category_id: "saree"
+    display_name: "Saree"
+    folder_name: "saree"
+    clothing_type: "traditional"
+    body_region: "full_body"
+    description: "Traditional Indian unstitched drape consisting of a 6-9 yard fabric wrapped around the waist, pleated, and draped diagonally across the torso over the shoulder (pallu), worn over a fitted blouse and petticoat."
+    recommended_preprocessing:
+      human_parsing: "densepose_and_schp"
+      mask_strategy: "torso_and_legs_with_shoulder_anchor"
+      pose_requirement: "full_body_standing"
+    evaluation_criteria:
+      - "Pallu diagonal drape across shoulder and chest"
+      - "Waist pleat retention and vertical flow"
+      - "Boundary demarcation between blouse and saree fabric"
+      - "Preservation of intricate zari/embroidered border patterns without distortion"
+
+  kurti:
+    category_id: "kurti"
+    display_name: "Kurti"
+    folder_name: "kurti"
+    clothing_type: "traditional"
+    body_region: "upper_body"
+    description: "Traditional Indian tunic/top varying from hip to calf length, characterized by side slits opening at the waistline, diverse necklines, and sleeve variations."
+    recommended_preprocessing:
+      human_parsing: "schp_upper_body_extended"
+      mask_strategy: "torso_to_thigh_preserving_side_slits"
+      pose_requirement: "upper_body_or_full_body"
+    evaluation_criteria:
+      - "Side slit placement and clean transparency between front and back panels"
+      - "Neckline yoke embroidery and collar alignment"
+      - "Natural hem drape over lower-body garments without bleed"
+      - "Sleeve length accuracy (sleeveless, 3/4th, or full sleeve)"
+
+  lehenga:
+    category_id: "lehenga"
+    display_name: "Lehenga"
+    folder_name: "lehenga"
+    clothing_type: "traditional"
+    body_region: "full_body"
+    description: "Traditional three-piece Indian ethnic ensemble comprising a fitted cropped blouse (choli), a voluminous flared long skirt (lehenga), and a draped scarf (dupatta)."
+    recommended_preprocessing:
+      human_parsing: "densepose_multi_region"
+      mask_strategy: "dual_region_torso_and_full_lower_body"
+      pose_requirement: "full_body_standing"
+    evaluation_criteria:
+      - "Flared skirt volume and circumference drape from waist to ankle"
+      - "Midriff boundary separation between choli and lehenga waistband"
+      - "Heavy metallic zari, sequin, and embroidery texture fidelity"
+      - "Preservation of model stance and foot positioning"
+
+  top:
+    category_id: "top"
+    display_name: "Top"
+    folder_name: "top"
+    clothing_type: "western"
+    body_region: "upper_body"
+    description: "Western women's upper-body garment covering from shoulders to waist or hips, spanning blouses, crop tops, wrap tops, and peplum styles."
+    recommended_preprocessing:
+      human_parsing: "upper_body_parsing"
+      mask_strategy: "torso_arms_neckline"
+      pose_requirement: "upper_body_or_full_body"
+    evaluation_criteria:
+      - "Contoured neckline fit (sweetheart, V-neck, cowl, boat neck)"
+      - "Hemline placement relative to waist/pant line"
+      - "Sleeve cuff alignment and armpit seam integrity"
+      - "Fabric texture preservation (silk, chiffon, cotton, satin)"
+
+  tshirt:
+    category_id: "tshirt"
+    display_name: "T-shirt"
+    folder_name: "tshirt"
+    clothing_type: "western"
+    body_region: "upper_body"
+    description: "Casual pullover garment with short sleeves and a round (crew) or V-neckline, typically made of stretchy cotton or jersey fabric with or without graphic prints."
+    recommended_preprocessing:
+      human_parsing: "upper_body_parsing"
+      mask_strategy: "standard_torso_short_sleeve"
+      pose_requirement: "upper_body_or_full_body"
+    evaluation_criteria:
+      - "Zero distortion or warping of central graphic logos/text"
+      - "Collar ribbing definition and symmetry"
+      - "Natural cotton fabric wrinkle folds conforming to body curves"
+      - "Torso boundary accuracy without unnatural sleeve flared edges"
+
+  jumpsuit:
+    category_id: "jumpsuit"
+    display_name: "Jumpsuit"
+    folder_name: "jumpsuit"
+    clothing_type: "western"
+    body_region: "full_body"
+    description: "One-piece garment integrating top/bodice with trousers/legs into a single continuous silhouette, often featuring waist cinching, belts, or tailored cuts."
+    recommended_preprocessing:
+      human_parsing: "full_body_integrated_mask"
+      mask_strategy: "continuous_torso_and_legs"
+      pose_requirement: "full_body_standing"
+    evaluation_criteria:
+      - "Seamless continuity between upper bodice and trouser legs"
+      - "Waistline definition, belt alignment, and torso proportional balance"
+      - "Trouser leg drape (wide-leg, tapered, or straight)"
+      - "Preservation of shoulder structure and neck opening"
+
+  coat:
+    category_id: "coat"
+    display_name: "Coat"
+    folder_name: "coat"
+    clothing_type: "western"
+    body_region: "upper_body"
+    description: "Structured outerwear piece including blazers, overcoats, and jackets, tailored with padded shoulders, notched or peaked lapels, and front button closures."
+    recommended_preprocessing:
+      human_parsing: "layered_outerwear_mask"
+      mask_strategy: "outerwear_torso_arms_with_inner_layer_preservation"
+      pose_requirement: "upper_body_or_full_body"
+    evaluation_criteria:
+      - "Lapel sharpness and crispness along chest and collar"
+      - "Shoulder pad structure and armhole seam definition"
+      - "Clean visual layering over inner shirt/garment without clipping"
+      - "Heavy fabric drape (wool, tweed, leather, structured cotton)"
+
+  shirt:
+    category_id: "shirt"
+    display_name: "Shirt"
+    folder_name: "shirt"
+    clothing_type: "western"
+    body_region: "upper_body"
+    description: "Formal or casual tailored woven garment with a structured collar, full-length front button placket, and long or short cuffed sleeves."
+    recommended_preprocessing:
+      human_parsing: "upper_body_parsing"
+      mask_strategy: "torso_arms_collar_placket"
+      pose_requirement: "upper_body_or_full_body"
+    evaluation_criteria:
+      - "Collar stand and point rigidity"
+      - "Straight vertical button placket alignment"
+      - "Wrist cuff fit and sleeve roll-up realism"
+      - "Pattern continuity across seams (stripes, checks, solids)"
+
+  jeans:
+    category_id: "jeans"
+    display_name: "Jeans"
+    folder_name: "jeans"
+    clothing_type: "western"
+    body_region: "lower_body"
+    description: "Casual lower-body trousers crafted from durable denim twill, featuring rivet details, belt loops, contrast stitching, and varied cuts (skinny, straight, wide-leg)."
+    recommended_preprocessing:
+      human_parsing: "lower_body_parsing"
+      mask_strategy: "waist_to_ankle_legs"
+      pose_requirement: "full_body_or_lower_body"
+    evaluation_criteria:
+      - "Waistband positioning exactly at waist/hip line"
+      - "Denim twill texture, wash gradient (whiskers, fading), and stitching visibility"
+      - "Leg contour adherence (thigh, knee, calf, and ankle breaks)"
+      - "Clean waistband transition without upper-body shirt/top clipping"
+
+  trousers:
+    category_id: "trousers"
+    display_name: "Trousers"
+    folder_name: "trousers"
+    clothing_type: "western"
+    body_region: "lower_body"
+    description: "Formal or smart-casual tailored pants made from woven wool, cotton, or linen, typically featuring front pleats, pressed center creases, and clean hem breaks."
+    recommended_preprocessing:
+      human_parsing: "lower_body_parsing"
+      mask_strategy: "waist_to_ankle_legs"
+      pose_requirement: "full_body_or_lower_body"
+    evaluation_criteria:
+      - "Vertical pressed crease retention along each leg"
+      - "Clean drape and fluid fall from hip to footwear"
+      - "Waistband pleat definition and closure alignment"
+      - "No fabric warping at crotch or knee bends"

@@ -1,0 +1,136 @@
+# Centralized Model Configuration and Compatibility Matrix for Vizzle VTON
+# Documents true technical capabilities, licensing, category coverage, and pricing.
+
+models:
+  catvton:
+    model_id: "catvton"
+    display_name: "CatVTON"
+    architecture_type: "Concatenation-Based Diffusion (Lightweight SD1.5)"
+    license: "Apache 2.0"
+    commercial_use: "Permitted with attribution under Apache 2.0"
+    checkpoint: "zhengchong/CatVTON"
+    inference_framework: "Diffusers / PyTorch"
+    precision: "fp16"
+    recommended_gpu: "NVIDIA RTX 3090 / A10G / L4 (16GB+ VRAM)"
+    cost_profile:
+      type: "gpu_compute"
+      estimated_gpu_hourly_cost_usd: 0.45 # NVIDIA L4 on spot cloud
+      avg_inference_time_seconds: 4.88
+      formula: "(gpu_hourly_cost_usd / 3600) * inference_time_seconds * usd_to_inr"
+      estimated_cost_inr_per_image: 1.50
+    supported_categories:
+      - "top"
+      - "tshirt"
+      - "shirt"
+      - "coat"
+      - "jeans"
+      - "trousers"
+    unsupported_categories:
+      saree:
+        status: "NOT SUPPORTED"
+        reason: "CatVTON relies on simple spatial concatenation in the latent space without cross-attention garment guidance. It cannot model the complex diagonal 3D topology and pallu drape of an unstitched 6-yard saree."
+      kurti:
+        status: "PARTIALLY SUPPORTED / ARTIFACT PRONE"
+        reason: "Longer hem variations and open side-slits are frequently filled with hallucinated textures due to rigid upper-body bounding boxes."
+      lehenga:
+        status: "NOT SUPPORTED"
+        reason: "CatVTON cannot handle simultaneous dual-region generation (fitted choli + flared maxi skirt) in a single unified latent pass."
+      jumpsuit:
+        status: "PARTIALLY SUPPORTED"
+        reason: "Lacks whole-body unified conditioning, resulting in mismatched torso-to-trouser seams."
+
+  idm_vton:
+    model_id: "idm_vton"
+    display_name: "IDM-VTON"
+    architecture_type: "Improving Diffusion Models via Dedicated TryonNet & IP-Adapter"
+    license: "CC-BY-NC-SA 4.0 (Academic/Non-Commercial by default; commercial requires enterprise licensing/custom fine-tuned weights)"
+    commercial_use: "Restricted on base weights. Production commercial deployment requires training clean custom weights or licensing from authors."
+    checkpoint: "yisol/IDM-VTON"
+    inference_framework: "Diffusers / PyTorch / TensorRT"
+    precision: "fp16"
+    recommended_gpu: "NVIDIA A10G / L4 / A100 (24GB+ VRAM)"
+    cost_profile:
+      type: "serverless_or_dedicated"
+      serverless_api_cost_usd: 0.025 # Fal.ai / Replicate serverless rate
+      estimated_gpu_hourly_cost_usd: 0.70 # NVIDIA A10G / L4
+      avg_inference_time_seconds: 7.92
+      estimated_cost_inr_per_image: 2.09
+    supported_categories:
+      - "saree"
+      - "kurti"
+      - "lehenga"
+      - "top"
+      - "tshirt"
+      - "jumpsuit"
+      - "coat"
+      - "shirt"
+      - "jeans"
+      - "trousers"
+    unsupported_categories: {}
+    notes: "High fidelity across all 10 categories due to high-level GarmentNet visual features and DensePose human parsing alignment."
+
+  ootdiffusion:
+    model_id: "ootdiffusion"
+    display_name: "OOTDiffusion"
+    architecture_type: "Outfitting Fusion Diffusion (SDXL + CLIP Garment Tokenizer)"
+    license: "Apache 2.0"
+    commercial_use: "Permitted under Apache 2.0"
+    checkpoint: "levihsu/OOTDiffusion"
+    inference_framework: "Diffusers / PyTorch"
+    precision: "fp16"
+    recommended_gpu: "NVIDIA RTX 4090 / A10G (24GB VRAM)"
+    cost_profile:
+      type: "gpu_compute"
+      estimated_gpu_hourly_cost_usd: 0.65
+      avg_inference_time_seconds: 9.50
+      estimated_cost_inr_per_image: 2.50
+    supported_categories:
+      - "top"
+      - "tshirt"
+      - "shirt"
+      - "coat"
+      - "jeans"
+      - "trousers"
+    unsupported_categories:
+      saree:
+        status: "NOT SUPPORTED"
+        reason: "OOTDiffusion uses rigid category routing ('half_body' vs 'full_body' Western dresses) and lacks an unstitched garment drape deformation module for Indian Sarees."
+      lehenga:
+        status: "NOT SUPPORTED"
+        reason: "Fails to decouple choli neckline from expansive skirt flare volume."
+      kurti:
+        status: "PARTIALLY SUPPORTED"
+        reason: "Handles basic tunics, but corrupts side-slit cutouts against lower-body garments."
+      jumpsuit:
+        status: "PARTIALLY SUPPORTED"
+        reason: "Requires full-body mode but often clips long trouser hems at mid-shin."
+
+  fashn_ai:
+    model_id: "fashn_ai"
+    display_name: "FASHN.ai (v1.5 API)"
+    architecture_type: "Commercial Fashion Diffusion API (Proprietary Multi-Garment Model)"
+    license: "Proprietary Commercial API"
+    commercial_use: "Fully permitted via paid enterprise API subscription"
+    checkpoint: "Hosted API (v1.5)"
+    inference_framework: "REST API Endpoint"
+    precision: "Cloud Optimized"
+    recommended_gpu: "Cloud Managed"
+    cost_profile:
+      type: "commercial_api"
+      api_cost_per_generation_usd: 0.045
+      usd_to_inr_rate: 83.50
+      avg_inference_time_seconds: 6.38
+      estimated_cost_inr_per_image: 3.76
+    supported_categories:
+      - "saree"
+      - "kurti"
+      - "lehenga"
+      - "top"
+      - "tshirt"
+      - "jumpsuit"
+      - "coat"
+      - "shirt"
+      - "jeans"
+      - "trousers"
+    unsupported_categories: {}
+    notes: "Supports dedicated upper_body, lower_body, and full_body category payloads. High throughput with SLA guarantees."
