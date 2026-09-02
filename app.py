@@ -153,7 +153,7 @@ HTML_PAGE = """<!DOCTYPE html>
 
         /* Image Display Areas */
         .image-view-box {
-            height: 330px;
+            height: 380px;
             background: #090d16;
             border: 1px dashed var(--border);
             border-radius: 8px;
@@ -167,7 +167,8 @@ HTML_PAGE = """<!DOCTYPE html>
         .image-view-box img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
+            background: #090d16;
             display: block;
         }
         .upload-overlay {
@@ -378,7 +379,7 @@ HTML_PAGE = """<!DOCTYPE html>
                     <span><span class="step-num">3</span>Virtual Try-On Output</span>
                 </div>
                 <div class="image-view-box">
-                    <img id="resultView" src="/assets/saree_tryon_result_1788149329537.jpg" alt="VTON Visualization">
+                    <img id="resultView" src="/assets/exact_aligned_tryon.jpg" alt="VTON Visualization">
                     <div id="loadingOverlay" class="loading-cover">
                         <div class="spinner"></div>
                         <div style="font-weight:700; font-size:14px; margin-top:12px; color:#ffffff;">Executing VTO Model Inference...</div>
@@ -488,7 +489,7 @@ HTML_PAGE = """<!DOCTYPE html>
         const categoryMap = {
             'saree': {
                 garment: '/assets/sample_saree_garment_1788149310214.jpg',
-                tryon: '/assets/saree_tryon_result_1788149329537.jpg',
+                tryon: '/assets/exact_aligned_tryon.jpg',
                 files: ['saree_001.jpg']
             },
             'kurti': {
@@ -609,9 +610,13 @@ HTML_PAGE = """<!DOCTYPE html>
                     return;
                 }
 
-                const catData = categoryMap[cat];
-                if (catData) {
-                    document.getElementById('resultView').src = catData.tryon;
+                if (data.output_image_path) {
+                    document.getElementById('resultView').src = '/' + data.output_image_path.replace(/\\\\/g, '/') + '?t=' + Date.now();
+                } else {
+                    const catData = categoryMap[cat];
+                    if (catData) {
+                        document.getElementById('resultView').src = catData.tryon + '?t=' + Date.now();
+                    }
                 }
 
                 const speedClass = data.meets_speed_requirement ? 'badge-green' : 'badge-red';
@@ -649,7 +654,7 @@ class VTONRequestHandler(http.server.SimpleHTTPRequestHandler):
             self.send_header("Content-Type", "text/html; charset=utf-8")
             self.end_headers()
             self.wfile.write(HTML_PAGE.encode("utf-8"))
-        elif clean_path.startswith("/assets/") or clean_path.startswith("/inputs/"):
+        elif clean_path.startswith("/assets/") or clean_path.startswith("/inputs/") or clean_path.startswith("/results/"):
             rel_path = clean_path[1:].replace('/', os.sep)
             if os.path.exists(rel_path) and os.path.isfile(rel_path):
                 mime, _ = mimetypes.guess_type(rel_path)
