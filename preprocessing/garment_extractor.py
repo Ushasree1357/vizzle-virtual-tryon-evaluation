@@ -50,14 +50,17 @@ class GarmentExtractor:
         w, h = pil_img.size
         cv_img = cv2.cvtColor(np.array(pil_img), cv2.COLOR_RGB2BGR)
 
-        # 1. Background segmentation via rembg
-        if self._rembg_session is not None:
-            rgba_foreground = rembg.remove(pil_img, session=self._rembg_session)
-        else:
-            rgba_foreground = rembg.remove(pil_img)
-            
-        foreground_np = np.array(rgba_foreground)
-        alpha = foreground_np[:, :, 3].copy()
+        # 1. Background segmentation via rembg with fallback
+        try:
+            if self._rembg_session is not None:
+                rgba_foreground = rembg.remove(pil_img, session=self._rembg_session)
+            else:
+                rgba_foreground = rembg.remove(pil_img)
+            foreground_np = np.array(rgba_foreground)
+            alpha = foreground_np[:, :, 3].copy()
+        except Exception as e:
+            logger.warning(f"rembg fallback activated: {e}")
+            alpha = np.ones((h, w), dtype=np.uint8) * 255
 
         # 2. Isolate garment from face/hair/shorts based on category
         if cat in {"shirt", "top", "tshirt", "coat"}:
