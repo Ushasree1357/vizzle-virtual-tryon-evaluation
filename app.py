@@ -354,7 +354,7 @@ HTML_PAGE = """<!DOCTYPE html>
                 <input type="file" id="garmentInput" accept="image/*" style="display:none" onchange="handleUserUpload(event, 'garmentView')">
                 <label class="form-label">Select Reference Dataset Garment (Verified Styles):</label>
                 <select id="categorySelect" onchange="onCategoryChanged()">
-                    <option value="gold_embellished_jumpsuit">1. Champagne Gold Embellished Jumpsuit</option>
+                    <option value="gold_embellished_jumpsuit">1. Champagne Gold Embellished Gown (Full Sleeves)</option>
                     <option value="blue_denim_jeans">2. Light Blue Slim Denim Jeans</option>
                     <option value="gingham_check_shirt">3. Black &amp; White Gingham Check Shirt</option>
                     <option value="black_polo_tshirt">4. Black Collared Polo T-Shirt</option>
