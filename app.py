@@ -366,6 +366,7 @@ HTML_PAGE = """<!DOCTYPE html>
                     <option value="fuchsia_collared_shirt">10. Fuchsia Pink Collared Shirt &amp; Shorts</option>
                     <option value="yellow_silk_saree">11. Mustard Yellow Silk Saree</option>
                     <option value="pink_embroidered_saree">12. Magenta Pink Embroidered Saree</option>
+                    <option value="dark_blue_denim_dress">13. Dark-Blue Sleeveless Denim Shirt Dress</option>
                 </select>
 
                 <label class="form-label">Garment File (Filtered to inputs/garments/&lt;category&gt;/):</label>
@@ -542,6 +543,11 @@ HTML_PAGE = """<!DOCTYPE html>
                 garment: '/assets/dataset_14/garments/pink_embroidered_saree.jpg',
                 tryon: '/assets/dataset_14/tryons/pink_embroidered_saree.jpg',
                 files: ['pink_embroidered_saree.jpg']
+            },
+            'dark_blue_denim_dress': {
+                garment: '/assets/dataset_14/garments/dark_blue_denim_dress.jpg',
+                tryon: '/assets/dataset_14/tryons/dark_blue_denim_dress.jpg',
+                files: ['dark_blue_denim_dress.jpg']
             },
             'jumpsuit': {
                 garment: '/assets/dataset_14/garments/gold_embellished_jumpsuit.jpg',
@@ -750,6 +756,7 @@ class VTONRequestHandler(http.server.SimpleHTTPRequestHandler):
                     'fuchsia_collared_shirt': 'assets/dataset_14/tryons/fuchsia_collared_shirt.jpg',
                     'yellow_silk_saree': 'assets/dataset_14/tryons/yellow_silk_saree.jpg',
                     'pink_embroidered_saree': 'assets/dataset_14/tryons/pink_embroidered_saree.jpg',
+                    'dark_blue_denim_dress': 'assets/dataset_14/tryons/dark_blue_denim_dress.jpg',
                     'saree': 'assets/dataset_14/tryons/yellow_silk_saree.jpg',
                     'kurti': 'assets/dataset_14/tryons/black_printed_kurti_set.jpg',
                     'jumpsuit': 'assets/dataset_14/tryons/gold_embellished_jumpsuit.jpg',
