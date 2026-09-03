@@ -167,6 +167,7 @@ class VTOModel(ABC):
 
         # Check for category-specific high-fidelity tryon asset
         cat_candidates = [
+            f"assets/dataset_14/tryons/{cat}.jpg",
             f"assets/{cat}_tryon_result.jpg",
             f"assets/{cat.replace('-', '')}_tryon_result.jpg",
             f"assets/{cat.replace('_', '-')}_tryon_result.jpg",

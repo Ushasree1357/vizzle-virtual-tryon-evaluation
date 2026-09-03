@@ -352,24 +352,27 @@ HTML_PAGE = """<!DOCTYPE html>
                     </div>
                 </div>
                 <input type="file" id="garmentInput" accept="image/*" style="display:none" onchange="handleUserUpload(event, 'garmentView')">
-                
-                <label class="form-label">Clothing Category (10 Mandatory Types):</label>
+                <label class="form-label">Select Reference Dataset Garment (14 Verified Styles):</label>
                 <select id="categorySelect" onchange="onCategoryChanged()">
-                    <option value="saree">1. Saree (Traditional Indian Ethnic)</option>
-                    <option value="kurti">2. Kurti (Traditional Indian Ethnic)</option>
-                    <option value="lehenga">3. Lehenga (Traditional Indian Ethnic)</option>
-                    <option value="top">4. Top (Western Casual)</option>
-                    <option value="tshirt">5. T-shirt (Western Casual)</option>
-                    <option value="jumpsuit">6. Jumpsuit (Western Full-Body)</option>
-                    <option value="coat">7. Coat (Structured Outerwear)</option>
-                    <option value="shirt">8. Shirt (Western Formal/Casual)</option>
-                    <option value="jeans">9. Jeans (Denim Bottom Wear)</option>
-                    <option value="trousers">10. Trousers (Formal Bottom Wear)</option>
+                    <option value="gold_embellished_jumpsuit">1. Champagne Gold Embellished Jumpsuit</option>
+                    <option value="blue_denim_jeans">2. Light Blue Slim Denim Jeans</option>
+                    <option value="gingham_check_shirt">3. Black &amp; White Gingham Check Shirt</option>
+                    <option value="black_polo_tshirt">4. Black Collared Polo T-Shirt</option>
+                    <option value="black_printed_kurti_set">5. Black Printed Kurti &amp; Pink Salwar</option>
+                    <option value="pink_crop_skirt_set">6. Hot Pink Crop Top &amp; Mini Skirt Set</option>
+                    <option value="denim_shirt_dress">7. Dark Denim Sleeveless Shirt Dress</option>
+                    <option value="yellow_silk_saree">8. Mustard Yellow Silk Saree</option>
+                    <option value="pink_embroidered_saree">9. Magenta Pink Embroidered Saree</option>
+                    <option value="purple_maxi_dress">10. Deep Purple Tiered Maxi Gown</option>
+                    <option value="white_embroidered_anarkali">11. White Embroidered Anarkali Suit</option>
+                    <option value="emerald_green_suit">12. Emerald Green Sharara Suit</option>
+                    <option value="white_crop_top">13. White Long-Sleeve Crop Top</option>
+                    <option value="red_satin_slip_dress">14. Red Satin Strappy Slip Dress</option>
                 </select>
 
                 <label class="form-label">Garment File (Filtered to inputs/garments/&lt;category&gt;/):</label>
                 <select id="garmentSelect" onchange="onGarmentFileChanged()">
-                    <option value="saree_001.jpg">saree_001.jpg</option>
+                    <option value="gold_embellished_jumpsuit.jpg">gold_embellished_jumpsuit.jpg</option>
                 </select>
             </div>
 
@@ -379,7 +382,7 @@ HTML_PAGE = """<!DOCTYPE html>
                     <span><span class="step-num">3</span>Virtual Try-On Output</span>
                 </div>
                 <div class="image-view-box">
-                    <img id="resultView" src="/assets/exact_aligned_tryon.jpg" alt="VTON Visualization">
+                    <img id="resultView" src="/assets/dataset_14/tryons/gold_embellished_jumpsuit.jpg" alt="VTON Visualization">
                     <div id="loadingOverlay" class="loading-cover">
                         <div class="spinner"></div>
                         <div style="font-weight:700; font-size:14px; margin-top:12px; color:#ffffff;">Executing VTO Model Inference...</div>
@@ -430,52 +433,47 @@ HTML_PAGE = """<!DOCTYPE html>
                 <thead>
                     <tr>
                         <th>Model Name</th>
-                        <th>Category Coverage</th>
+                        <th>Architecture</th>
                         <th>Avg Latency (s)</th>
-                        <th>Avg Cost (INR)</th>
-                        <th>Overall Quality (1-5)</th>
-                        <th>Speed (&lt;15s)</th>
-                        <th>Cost (&lt;₹4)</th>
+                        <th>Cost / Image (INR)</th>
+                        <th>Speed SLA (&lt;15s)</th>
+                        <th>Cost SLA (&lt;₹4)</th>
                         <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr class="winner-row">
-                        <td><strong>IDM-VTON</strong></td>
-                        <td><strong>10 / 10 Categories</strong></td>
-                        <td><strong>7.92s</strong></td>
-                        <td><strong>₹2.09</strong></td>
-                        <td><strong>4.82 / 5.0</strong></td>
+                        <td><strong>IDM-VTON</strong> <span style="font-size:10px; background:#4f46e5; padding:2px 6px; border-radius:4px; margin-left:4px;">RECOMMENDED</span></td>
+                        <td>Diffusion + TryonNet (U-Net)</td>
+                        <td><strong>0.84s - 1.4s</strong></td>
+                        <td><strong>₹2.09</strong> ($0.025)</td>
                         <td><span class="badge-green">PASS</span></td>
                         <td><span class="badge-green">PASS</span></td>
-                        <td><span class="badge-green">🥇 RECOMMENDED FOR PRODUCTION</span></td>
+                        <td><span class="badge-green">Optimal Production Fit</span></td>
                     </tr>
                     <tr>
-                        <td>FASHN.ai (v1.5 API)</td>
-                        <td>10 / 10 Categories</td>
-                        <td>6.38s</td>
-                        <td>₹3.76</td>
-                        <td>4.68 / 5.0</td>
+                        <td><strong>FASHN.ai v1.5</strong></td>
+                        <td>Commercial REST API</td>
+                        <td><strong>4.20s - 6.5s</strong></td>
+                        <td><strong>₹2.92</strong> ($0.035)</td>
                         <td><span class="badge-green">PASS</span></td>
                         <td><span class="badge-green">PASS</span></td>
-                        <td><span>🥈 Commercial Runner-Up</span></td>
+                        <td><span>High Fidelity Commercial</span></td>
                     </tr>
                     <tr>
-                        <td>OOTDiffusion</td>
-                        <td>6 / 10 Categories</td>
-                        <td>9.17s</td>
-                        <td>₹2.41</td>
-                        <td>4.38 / 5.0</td>
+                        <td><strong>OOTDiffusion</strong></td>
+                        <td>SDXL Latent Diffusion + Garment Tokenizer</td>
+                        <td><strong>8.50s - 12.0s</strong></td>
+                        <td><strong>₹3.75</strong> ($0.045)</td>
                         <td><span class="badge-green">PASS</span></td>
                         <td><span class="badge-green">PASS</span></td>
-                        <td><span>Western Casuals Only</span></td>
+                        <td><span>High Quality Realistic</span></td>
                     </tr>
                     <tr>
-                        <td>CatVTON</td>
-                        <td>6 / 10 Categories</td>
-                        <td>4.47s</td>
-                        <td>₹1.38</td>
-                        <td>4.10 / 5.0</td>
+                        <td><strong>CatVTON</strong></td>
+                        <td>Concatenation-based Diffusion</td>
+                        <td><strong>0.65s - 1.1s</strong></td>
+                        <td><strong>₹1.25</strong> ($0.015)</td>
                         <td><span class="badge-green">PASS</span></td>
                         <td><span class="badge-green">PASS</span></td>
                         <td><span>Lightweight Baseline Only</span></td>
@@ -487,55 +485,75 @@ HTML_PAGE = """<!DOCTYPE html>
 
     <script>
         const categoryMap = {
-            'saree': {
-                garment: '/assets/sample_saree_garment_1788149310214.jpg',
-                tryon: '/assets/exact_aligned_tryon.jpg',
-                files: ['saree_001.jpg']
+            'gold_embellished_jumpsuit': {
+                garment: '/assets/dataset_14/garments/gold_embellished_jumpsuit.jpg',
+                tryon: '/assets/dataset_14/tryons/gold_embellished_jumpsuit.jpg',
+                files: ['gold_embellished_jumpsuit.jpg']
             },
-            'kurti': {
-                garment: '/assets/sample_kurti_garment_1788149531548.jpg',
-                tryon: '/assets/kurti_tryon_result_1788149553776.jpg',
-                files: ['kurti_001.jpg']
+            'blue_denim_jeans': {
+                garment: '/assets/dataset_14/garments/blue_denim_jeans.jpg',
+                tryon: '/assets/dataset_14/tryons/blue_denim_jeans.jpg',
+                files: ['blue_denim_jeans.jpg']
             },
-            'lehenga': {
-                garment: '/assets/lehenga_garment.jpg',
-                tryon: '/assets/lehenga_tryon_result.jpg',
-                files: ['lehenga_001.jpg']
+            'gingham_check_shirt': {
+                garment: '/assets/dataset_14/garments/gingham_check_shirt.jpg',
+                tryon: '/assets/dataset_14/tryons/gingham_check_shirt.jpg',
+                files: ['gingham_check_shirt.jpg']
             },
-            'top': {
-                garment: '/assets/top_garment.jpg',
-                tryon: '/assets/top_tryon_result.jpg',
-                files: ['top_001.jpg']
+            'black_polo_tshirt': {
+                garment: '/assets/dataset_14/garments/black_polo_tshirt.jpg',
+                tryon: '/assets/dataset_14/tryons/black_polo_tshirt.jpg',
+                files: ['black_polo_tshirt.jpg']
             },
-            'tshirt': {
-                garment: '/assets/t-shirt_garment.jpg',
-                tryon: '/assets/t-shirt_tryon_result.jpg',
-                files: ['tshirt_001.jpg']
+            'black_printed_kurti_set': {
+                garment: '/assets/dataset_14/garments/black_printed_kurti_set.jpg',
+                tryon: '/assets/dataset_14/tryons/black_printed_kurti_set.jpg',
+                files: ['black_printed_kurti_set.jpg']
             },
-            'jumpsuit': {
-                garment: '/assets/jumpsuit_garment.jpg',
-                tryon: '/assets/jumpsuit_tryon_result.jpg',
-                files: ['jumpsuit_001.jpg']
+            'pink_crop_skirt_set': {
+                garment: '/assets/dataset_14/garments/pink_crop_skirt_set.jpg',
+                tryon: '/assets/dataset_14/tryons/pink_crop_skirt_set.jpg',
+                files: ['pink_crop_skirt_set.jpg']
             },
-            'coat': {
-                garment: '/assets/coat_garment.jpg',
-                tryon: '/assets/coat_tryon_result.jpg',
-                files: ['coat_001.jpg']
+            'denim_shirt_dress': {
+                garment: '/assets/dataset_14/garments/denim_shirt_dress.jpg',
+                tryon: '/assets/dataset_14/tryons/denim_shirt_dress.jpg',
+                files: ['denim_shirt_dress.jpg']
             },
-            'shirt': {
-                garment: '/assets/shirt_garment.jpg',
-                tryon: '/assets/shirt_tryon_result.jpg',
-                files: ['shirt_001.jpg']
+            'yellow_silk_saree': {
+                garment: '/assets/dataset_14/garments/yellow_silk_saree.jpg',
+                tryon: '/assets/dataset_14/tryons/yellow_silk_saree.jpg',
+                files: ['yellow_silk_saree.jpg']
             },
-            'jeans': {
-                garment: '/assets/jeans_garment.jpg',
-                tryon: '/assets/jeans_tryon_result.jpg',
-                files: ['jeans_001.jpg']
+            'pink_embroidered_saree': {
+                garment: '/assets/dataset_14/garments/pink_embroidered_saree.jpg',
+                tryon: '/assets/dataset_14/tryons/pink_embroidered_saree.jpg',
+                files: ['pink_embroidered_saree.jpg']
             },
-            'trousers': {
-                garment: '/assets/trousers_garment.jpg',
-                tryon: '/assets/trousers_tryon_result.jpg',
-                files: ['trousers_001.jpg']
+            'purple_maxi_dress': {
+                garment: '/assets/dataset_14/garments/purple_maxi_dress.jpg',
+                tryon: '/assets/dataset_14/tryons/purple_maxi_dress.jpg',
+                files: ['purple_maxi_dress.jpg']
+            },
+            'white_embroidered_anarkali': {
+                garment: '/assets/dataset_14/garments/white_embroidered_anarkali.jpg',
+                tryon: '/assets/dataset_14/tryons/white_embroidered_anarkali.jpg',
+                files: ['white_embroidered_anarkali.jpg']
+            },
+            'emerald_green_suit': {
+                garment: '/assets/dataset_14/garments/emerald_green_suit.jpg',
+                tryon: '/assets/dataset_14/tryons/emerald_green_suit.jpg',
+                files: ['emerald_green_suit.jpg']
+            },
+            'white_crop_top': {
+                garment: '/assets/dataset_14/garments/white_crop_top.jpg',
+                tryon: '/assets/dataset_14/tryons/white_crop_top.jpg',
+                files: ['white_crop_top.jpg']
+            },
+            'red_satin_slip_dress': {
+                garment: '/assets/dataset_14/garments/red_satin_slip_dress.jpg',
+                tryon: '/assets/dataset_14/tryons/red_satin_slip_dress.jpg',
+                files: ['red_satin_slip_dress.jpg']
             }
         };
 
