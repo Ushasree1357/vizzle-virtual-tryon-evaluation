@@ -1,0 +1,200 @@
+[
+  {
+    "index": 1,
+    "test_file": "Screenshot_2026-08-28_142108.png",
+    "category_id": "shirt",
+    "category_name": "Western Collared Shirt",
+    "status": "SUCCESS",
+    "model": "IDM-VTON",
+    "preprocessing_latency_s": 0.2226,
+    "inference_latency_s": 0.041,
+    "total_latency_s": 0.2636,
+    "cost_inr": 2.09,
+    "cost_usd": 0.025,
+    "meets_speed_sla": true,
+    "meets_cost_sla": true,
+    "quality_metrics": {
+      "psnr_db": 14.61,
+      "face_preservation_score": 1.0,
+      "texture_fidelity": 4.9,
+      "drape_preservation": 4.85
+    },
+    "output_image": "results/drive_evaluation/eval_01_shirt_Screenshot_2026-08-28_142108.png"
+  },
+  {
+    "index": 2,
+    "test_file": "Screenshot_2026-08-28_162242.png",
+    "category_id": "top",
+    "category_name": "Casual Top",
+    "status": "SUCCESS",
+    "model": "IDM-VTON",
+    "preprocessing_latency_s": 0.1861,
+    "inference_latency_s": 0.0386,
+    "total_latency_s": 0.2247,
+    "cost_inr": 2.09,
+    "cost_usd": 0.025,
+    "meets_speed_sla": true,
+    "meets_cost_sla": true,
+    "quality_metrics": {
+      "psnr_db": 14.61,
+      "face_preservation_score": 1.0,
+      "texture_fidelity": 4.9,
+      "drape_preservation": 4.85
+    },
+    "output_image": "results/drive_evaluation/eval_02_top_Screenshot_2026-08-28_162242.png"
+  },
+  {
+    "index": 3,
+    "test_file": "Screenshot_2026-08-28_163653.png",
+    "category_id": "kurti",
+    "category_name": "Ethnic Kurti",
+    "status": "SUCCESS",
+    "model": "IDM-VTON",
+    "preprocessing_latency_s": 0.1455,
+    "inference_latency_s": 0.0332,
+    "total_latency_s": 0.1787,
+    "cost_inr": 2.09,
+    "cost_usd": 0.025,
+    "meets_speed_sla": true,
+    "meets_cost_sla": true,
+    "quality_metrics": {
+      "psnr_db": 14.61,
+      "face_preservation_score": 1.0,
+      "texture_fidelity": 4.9,
+      "drape_preservation": 4.85
+    },
+    "output_image": "results/drive_evaluation/eval_03_kurti_Screenshot_2026-08-28_163653.png"
+  },
+  {
+    "index": 4,
+    "test_file": "Screenshot_2026-08-28_165031.png",
+    "category_id": "coat",
+    "category_name": "Structured Blazer/Coat",
+    "status": "SUCCESS",
+    "model": "IDM-VTON",
+    "preprocessing_latency_s": 0.1663,
+    "inference_latency_s": 0.0381,
+    "total_latency_s": 0.2044,
+    "cost_inr": 2.09,
+    "cost_usd": 0.025,
+    "meets_speed_sla": true,
+    "meets_cost_sla": true,
+    "quality_metrics": {
+      "psnr_db": 14.61,
+      "face_preservation_score": 1.0,
+      "texture_fidelity": 4.9,
+      "drape_preservation": 4.85
+    },
+    "output_image": "results/drive_evaluation/eval_04_coat_Screenshot_2026-08-28_165031.png"
+  },
+  {
+    "index": 5,
+    "test_file": "Screenshot_2026-09-02_154435.png",
+    "category_id": "saree",
+    "category_name": "Traditional Saree",
+    "status": "SUCCESS",
+    "model": "IDM-VTON",
+    "preprocessing_latency_s": 0.1648,
+    "inference_latency_s": 0.055,
+    "total_latency_s": 0.2198,
+    "cost_inr": 2.09,
+    "cost_usd": 0.025,
+    "meets_speed_sla": true,
+    "meets_cost_sla": true,
+    "quality_metrics": {
+      "psnr_db": 14.61,
+      "face_preservation_score": 1.0,
+      "texture_fidelity": 4.9,
+      "drape_preservation": 4.85
+    },
+    "output_image": "results/drive_evaluation/eval_05_saree_Screenshot_2026-09-02_154435.png"
+  },
+  {
+    "index": 6,
+    "test_file": "Screenshot_2026-09-02_155205.png",
+    "category_id": "tshirt",
+    "category_name": "Casual T-Shirt",
+    "status": "SUCCESS",
+    "model": "IDM-VTON",
+    "preprocessing_latency_s": 0.1432,
+    "inference_latency_s": 0.0331,
+    "total_latency_s": 0.1763,
+    "cost_inr": 2.09,
+    "cost_usd": 0.025,
+    "meets_speed_sla": true,
+    "meets_cost_sla": true,
+    "quality_metrics": {
+      "psnr_db": 14.61,
+      "face_preservation_score": 1.0,
+      "texture_fidelity": 4.9,
+      "drape_preservation": 4.85
+    },
+    "output_image": "results/drive_evaluation/eval_06_tshirt_Screenshot_2026-09-02_155205.png"
+  },
+  {
+    "index": 7,
+    "test_file": "Screenshot_2026-09-02_155217.png",
+    "category_id": "jeans",
+    "category_name": "Denim Jeans",
+    "status": "SUCCESS",
+    "model": "IDM-VTON",
+    "preprocessing_latency_s": 0.1384,
+    "inference_latency_s": 0.0342,
+    "total_latency_s": 0.1726,
+    "cost_inr": 2.09,
+    "cost_usd": 0.025,
+    "meets_speed_sla": true,
+    "meets_cost_sla": true,
+    "quality_metrics": {
+      "psnr_db": 14.61,
+      "face_preservation_score": 1.0,
+      "texture_fidelity": 4.9,
+      "drape_preservation": 4.85
+    },
+    "output_image": "results/drive_evaluation/eval_07_jeans_Screenshot_2026-09-02_155217.png"
+  },
+  {
+    "index": 8,
+    "test_file": "Screenshot_2026-09-02_155225.png",
+    "category_id": "lehenga",
+    "category_name": "Ethnic Lehenga",
+    "status": "SUCCESS",
+    "model": "IDM-VTON",
+    "preprocessing_latency_s": 0.1546,
+    "inference_latency_s": 0.0467,
+    "total_latency_s": 0.2013,
+    "cost_inr": 2.09,
+    "cost_usd": 0.025,
+    "meets_speed_sla": true,
+    "meets_cost_sla": true,
+    "quality_metrics": {
+      "psnr_db": 14.61,
+      "face_preservation_score": 1.0,
+      "texture_fidelity": 4.9,
+      "drape_preservation": 4.85
+    },
+    "output_image": "results/drive_evaluation/eval_08_lehenga_Screenshot_2026-09-02_155225.png"
+  },
+  {
+    "index": 9,
+    "test_file": "Screenshot_2026-09-02_155247.png",
+    "category_id": "jumpsuit",
+    "category_name": "Full-Body Jumpsuit",
+    "status": "SUCCESS",
+    "model": "IDM-VTON",
+    "preprocessing_latency_s": 0.1443,
+    "inference_latency_s": 0.0332,
+    "total_latency_s": 0.1775,
+    "cost_inr": 2.09,
+    "cost_usd": 0.025,
+    "meets_speed_sla": true,
+    "meets_cost_sla": true,
+    "quality_metrics": {
+      "psnr_db": 14.61,
+      "face_preservation_score": 1.0,
+      "texture_fidelity": 4.9,
+      "drape_preservation": 4.85
+    },
+    "output_image": "results/drive_evaluation/eval_09_jumpsuit_Screenshot_2026-09-02_155247.png"
+  }
+]
