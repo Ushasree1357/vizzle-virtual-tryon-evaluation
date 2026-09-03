@@ -543,7 +543,10 @@ HTML_PAGE = """<!DOCTYPE html>
             const cat = document.getElementById('categorySelect').value;
             const data = categoryMap[cat];
             if (data) {
-                document.getElementById('garmentView').src = data.garment;
+                document.getElementById('garmentView').src = data.garment + '?t=' + Date.now();
+                if (data.tryon) {
+                    document.getElementById('resultView').src = data.tryon + '?t=' + Date.now();
+                }
                 
                 // Update garment selector with files belonging ONLY to this category
                 const gSelect = document.getElementById('garmentSelect');
