@@ -21,8 +21,8 @@ class ValidationResult:
 class InputValidator:
     def __init__(
         self,
-        min_width: int = 200,
-        min_height: int = 200,
+        min_width: int = 100,
+        min_height: int = 100,
         blur_threshold: float = 30.0,
         min_brightness: float = 20.0,
         max_brightness: float = 250.0,
