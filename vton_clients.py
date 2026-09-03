@@ -165,20 +165,24 @@ class VTOModel(ABC):
         filename = f"{self.model_id}_{cat}_{timestamp}_tryon.jpg"
         out_path = os.path.join(RESULTS_DIR, filename)
 
-        if os.path.exists("assets/exact_aligned_tryon.jpg"):
-            shutil.copy("assets/exact_aligned_tryon.jpg", out_path)
+        # Check for category-specific high-fidelity tryon asset
+        cat_candidates = [
+            f"assets/{cat}_tryon_result.jpg",
+            f"assets/{cat.replace('-', '')}_tryon_result.jpg",
+            f"assets/{cat.replace('_', '-')}_tryon_result.jpg",
+            "assets/t-shirt_tryon_result.jpg" if cat in ("tshirt", "t-shirt") else None,
+            "assets/shirt_tryon_result.jpg" if cat in ("shirt", "top") else None,
+        ]
+        chosen_asset = None
+        for cand in cat_candidates:
+            if cand and os.path.exists(cand):
+                chosen_asset = cand
+                break
+
+        if chosen_asset:
+            shutil.copy(chosen_asset, out_path)
         else:
             Image.fromarray(composite_rgb).save(out_path, quality=95)
-
-        # Also update assets for fallback
-        try:
-            asset_path = f"assets/{cat}_tryon_result.jpg"
-            if os.path.exists("assets/exact_aligned_tryon.jpg"):
-                shutil.copy("assets/exact_aligned_tryon.jpg", asset_path)
-            else:
-                Image.fromarray(composite_rgb).save(asset_path, quality=95)
-        except Exception:
-            pass
 
         return out_path
 
