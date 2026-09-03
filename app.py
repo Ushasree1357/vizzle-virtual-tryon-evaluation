@@ -352,7 +352,7 @@ HTML_PAGE = """<!DOCTYPE html>
                     </div>
                 </div>
                 <input type="file" id="garmentInput" accept="image/*" style="display:none" onchange="handleUserUpload(event, 'garmentView')">
-                <label class="form-label">Select Reference Dataset Garment (14 Verified Styles):</label>
+                <label class="form-label">Select Reference Dataset Garment (Verified Styles):</label>
                 <select id="categorySelect" onchange="onCategoryChanged()">
                     <option value="gold_embellished_jumpsuit">1. Champagne Gold Embellished Jumpsuit</option>
                     <option value="blue_denim_jeans">2. Light Blue Slim Denim Jeans</option>
@@ -360,14 +360,9 @@ HTML_PAGE = """<!DOCTYPE html>
                     <option value="black_polo_tshirt">4. Black Collared Polo T-Shirt</option>
                     <option value="black_printed_kurti_set">5. Black Printed Kurti &amp; Pink Salwar</option>
                     <option value="pink_crop_skirt_set">6. Hot Pink Crop Top &amp; Mini Skirt Set</option>
-                    <option value="denim_shirt_dress">7. Dark Denim Sleeveless Shirt Dress</option>
+                    <option value="fuchsia_collared_shirt">7. Fuchsia Pink Collared Shirt &amp; Shorts</option>
                     <option value="yellow_silk_saree">8. Mustard Yellow Silk Saree</option>
                     <option value="pink_embroidered_saree">9. Magenta Pink Embroidered Saree</option>
-                    <option value="purple_maxi_dress">10. Deep Purple Tiered Maxi Gown</option>
-                    <option value="white_embroidered_anarkali">11. White Embroidered Anarkali Suit</option>
-                    <option value="emerald_green_suit">12. Emerald Green Sharara Suit</option>
-                    <option value="white_crop_top">13. White Long-Sleeve Crop Top</option>
-                    <option value="red_satin_slip_dress">14. Red Satin Strappy Slip Dress</option>
                 </select>
 
                 <label class="form-label">Garment File (Filtered to inputs/garments/&lt;category&gt;/):</label>
@@ -515,10 +510,10 @@ HTML_PAGE = """<!DOCTYPE html>
                 tryon: '/assets/dataset_14/tryons/pink_crop_skirt_set.jpg',
                 files: ['pink_crop_skirt_set.jpg']
             },
-            'denim_shirt_dress': {
-                garment: '/assets/dataset_14/garments/denim_shirt_dress.jpg',
-                tryon: '/assets/dataset_14/tryons/denim_shirt_dress.jpg',
-                files: ['denim_shirt_dress.jpg']
+            'fuchsia_collared_shirt': {
+                garment: '/assets/dataset_14/garments/fuchsia_collared_shirt.jpg',
+                tryon: '/assets/dataset_14/tryons/fuchsia_collared_shirt.jpg',
+                files: ['fuchsia_collared_shirt.jpg']
             },
             'yellow_silk_saree': {
                 garment: '/assets/dataset_14/garments/yellow_silk_saree.jpg',
@@ -530,30 +525,40 @@ HTML_PAGE = """<!DOCTYPE html>
                 tryon: '/assets/dataset_14/tryons/pink_embroidered_saree.jpg',
                 files: ['pink_embroidered_saree.jpg']
             },
-            'purple_maxi_dress': {
-                garment: '/assets/dataset_14/garments/purple_maxi_dress.jpg',
-                tryon: '/assets/dataset_14/tryons/purple_maxi_dress.jpg',
-                files: ['purple_maxi_dress.jpg']
+            'jumpsuit': {
+                garment: '/assets/dataset_14/garments/gold_embellished_jumpsuit.jpg',
+                tryon: '/assets/dataset_14/tryons/gold_embellished_jumpsuit.jpg',
+                files: ['gold_embellished_jumpsuit.jpg']
             },
-            'white_embroidered_anarkali': {
-                garment: '/assets/dataset_14/garments/white_embroidered_anarkali.jpg',
-                tryon: '/assets/dataset_14/tryons/white_embroidered_anarkali.jpg',
-                files: ['white_embroidered_anarkali.jpg']
+            'jeans': {
+                garment: '/assets/dataset_14/garments/blue_denim_jeans.jpg',
+                tryon: '/assets/dataset_14/tryons/blue_denim_jeans.jpg',
+                files: ['blue_denim_jeans.jpg']
             },
-            'emerald_green_suit': {
-                garment: '/assets/dataset_14/garments/emerald_green_suit.jpg',
-                tryon: '/assets/dataset_14/tryons/emerald_green_suit.jpg',
-                files: ['emerald_green_suit.jpg']
+            'shirt': {
+                garment: '/assets/dataset_14/garments/gingham_check_shirt.jpg',
+                tryon: '/assets/dataset_14/tryons/gingham_check_shirt.jpg',
+                files: ['gingham_check_shirt.jpg']
             },
-            'white_crop_top': {
-                garment: '/assets/dataset_14/garments/white_crop_top.jpg',
-                tryon: '/assets/dataset_14/tryons/white_crop_top.jpg',
-                files: ['white_crop_top.jpg']
+            'tshirt': {
+                garment: '/assets/dataset_14/garments/black_polo_tshirt.jpg',
+                tryon: '/assets/dataset_14/tryons/black_polo_tshirt.jpg',
+                files: ['black_polo_tshirt.jpg']
             },
-            'red_satin_slip_dress': {
-                garment: '/assets/dataset_14/garments/red_satin_slip_dress.jpg',
-                tryon: '/assets/dataset_14/tryons/red_satin_slip_dress.jpg',
-                files: ['red_satin_slip_dress.jpg']
+            'kurti': {
+                garment: '/assets/dataset_14/garments/black_printed_kurti_set.jpg',
+                tryon: '/assets/dataset_14/tryons/black_printed_kurti_set.jpg',
+                files: ['black_printed_kurti_set.jpg']
+            },
+            'top': {
+                garment: '/assets/dataset_14/garments/pink_crop_skirt_set.jpg',
+                tryon: '/assets/dataset_14/tryons/pink_crop_skirt_set.jpg',
+                files: ['pink_crop_skirt_set.jpg']
+            },
+            'saree': {
+                garment: '/assets/dataset_14/garments/yellow_silk_saree.jpg',
+                tryon: '/assets/dataset_14/tryons/yellow_silk_saree.jpg',
+                files: ['yellow_silk_saree.jpg']
             }
         };
 
