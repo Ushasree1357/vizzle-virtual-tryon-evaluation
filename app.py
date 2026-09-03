@@ -355,14 +355,17 @@ HTML_PAGE = """<!DOCTYPE html>
                 <label class="form-label">Select Reference Dataset Garment (Verified Styles):</label>
                 <select id="categorySelect" onchange="onCategoryChanged()">
                     <option value="gold_embellished_jumpsuit">1. Champagne Gold Embellished Gown (Full Sleeves)</option>
-                    <option value="blue_denim_jeans">2. Light Blue Slim Denim Jeans</option>
-                    <option value="gingham_check_shirt">3. Black &amp; White Gingham Check Shirt</option>
-                    <option value="black_polo_tshirt">4. Black Collared Polo T-Shirt</option>
-                    <option value="black_printed_kurti_set">5. Black Printed Kurti &amp; Pink Salwar</option>
-                    <option value="pink_crop_skirt_set">6. Hot Pink Crop Top &amp; Mini Skirt Set</option>
-                    <option value="fuchsia_collared_shirt">7. Fuchsia Pink Collared Shirt &amp; Shorts</option>
-                    <option value="yellow_silk_saree">8. Mustard Yellow Silk Saree</option>
-                    <option value="pink_embroidered_saree">9. Magenta Pink Embroidered Saree</option>
+                    <option value="white_embroidered_anarkali">2. White Sequence Embroidered Anarkali Suit</option>
+                    <option value="emerald_green_suit">3. Emerald Green Flared Sharara Suit &amp; Dupatta</option>
+                    <option value="purple_maxi_dress">4. Royal Purple Tiered Flared Maxi Gown</option>
+                    <option value="blue_denim_jeans">5. Light Blue Slim Denim Jeans</option>
+                    <option value="gingham_check_shirt">6. Black &amp; White Gingham Check Shirt</option>
+                    <option value="black_polo_tshirt">7. Black Collared Polo T-Shirt</option>
+                    <option value="black_printed_kurti_set">8. Black Printed Kurti &amp; Pink Salwar</option>
+                    <option value="pink_crop_skirt_set">9. Hot Pink Crop Top &amp; Mini Skirt Set</option>
+                    <option value="fuchsia_collared_shirt">10. Fuchsia Pink Collared Shirt &amp; Shorts</option>
+                    <option value="yellow_silk_saree">11. Mustard Yellow Silk Saree</option>
+                    <option value="pink_embroidered_saree">12. Magenta Pink Embroidered Saree</option>
                 </select>
 
                 <label class="form-label">Garment File (Filtered to inputs/garments/&lt;category&gt;/):</label>
@@ -484,6 +487,21 @@ HTML_PAGE = """<!DOCTYPE html>
                 garment: '/assets/dataset_14/garments/gold_embellished_jumpsuit.jpg',
                 tryon: '/assets/dataset_14/tryons/gold_embellished_jumpsuit.jpg',
                 files: ['gold_embellished_jumpsuit.jpg']
+            },
+            'white_embroidered_anarkali': {
+                garment: '/assets/dataset_14/garments/white_embroidered_anarkali.jpg',
+                tryon: '/assets/dataset_14/tryons/white_embroidered_anarkali.jpg',
+                files: ['white_embroidered_anarkali.jpg']
+            },
+            'emerald_green_suit': {
+                garment: '/assets/dataset_14/garments/emerald_green_suit.jpg',
+                tryon: '/assets/dataset_14/tryons/emerald_green_suit.jpg',
+                files: ['emerald_green_suit.jpg']
+            },
+            'purple_maxi_dress': {
+                garment: '/assets/dataset_14/garments/purple_maxi_dress.jpg',
+                tryon: '/assets/dataset_14/tryons/purple_maxi_dress.jpg',
+                files: ['purple_maxi_dress.jpg']
             },
             'blue_denim_jeans': {
                 garment: '/assets/dataset_14/garments/blue_denim_jeans.jpg',
